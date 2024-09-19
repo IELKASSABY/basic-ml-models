@@ -1,0 +1,20 @@
+import numpy as np
+
+# Hypothetical dataset
+X = np.array([1, 2, 3, 4, 5])
+y = np.array([5, 7, 9, 11, 13])
+
+# Parameters initialization
+m, b = 0, 0
+L = 0.01  # Learning rate
+epochs = 1000  # Number of iterations
+
+# Gradient Descent
+for i in range(epochs):
+    y_pred = m * X + b
+    D_m = (-2/len(X)) * sum(X * (y - y_pred))  # Partial derivative for m
+    D_b = (-2/len(X)) * sum(y - y_pred)        # Partial derivative for b
+    m -= L * D_m
+    b -= L * D_b
+
+print(f"Optimized Slope: {m}, Intercept: {b}")
